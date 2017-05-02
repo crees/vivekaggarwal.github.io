@@ -33,7 +33,7 @@ What follows is my checklist to carry out a clean install of Windows 10 on a Del
 
 ### CAB drivers
 - **Open** an *Elevated* Command Prompt and navigate to `D:\drivers\cab` 
-- **Execute** following command: run `for /f %i in (‘dir /b /s *.inf’) do pnputil.exe -i -a %i`
+- **Execute** `for /f %i in (‘dir /b /s *.inf’) do pnputil.exe -i -a %i`
 - **Restart**
 
 ## Post Install
@@ -48,7 +48,7 @@ What follows is my checklist to carry out a clean install of Windows 10 on a Del
     - Paint .NET
     - Notepad++
     - Vistual Studio Code
-    -Dropbox
+    - Dropbox
 - **Configure** Mail, Start Menu, Taskbar
 - **Login** to Windows account
 - **Install** Windows Store Applications
