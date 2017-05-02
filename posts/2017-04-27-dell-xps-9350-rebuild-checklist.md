@@ -81,7 +81,7 @@ exit
 ## Visual Studio Code Configuration
 - **Configure**: Shell to using Bash.exe (CTRL-SHIFT-P > Shell -> Bash)
 
-###### Sources
+#### Sources
 1. [Dell Instructions to configure CAB files](http://www.dell.com/support/article/us/en/4/SLN209380/how-to-configure-driver-installation-from-cab-file-s--in-windows--vista--7--8--and-windows-server--2008-2012-?lang=EN)
 1. [Clean Install Guide on Answers @ Microsoft](https://answers.microsoft.com/en-us/windows/wiki/windows_10-windows_install/clean-install-windows-10/1c426bdf-79b1-4d42-be93-17378d93e587)
 1. [Manual Install Dell Driver Pack](http://www.1337admin.org/tutorials/manual-installation-of-a-dell-driver-pack-on-a-local-machine/)
