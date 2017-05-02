@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Vivek Aggarwal</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="content">
+    </div>
+
+    <footer>
+        <h4><a href="../">Back</a></h4>
+    </footer>   
+    <!-- paste this script right before the closing body tag -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js"></script>
+    <script>
+        var file = "posts/" + getPost("article");
+        var xhr;
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhr.onreadystatechange = function(){
+            var converter = new showdown.Converter(),
+            text = xhr.responseText,
+            html = converter.makeHtml(text);
+
+            var obj = document.getElementById("content");
+            obj.innerHTML = html;
+        };
+        var post = getPost("article");
+        xhr.open("GET","posts/" + post); //assuming kgr.bss is plaintext
+        xhr.send();
+        
+        document.title = snakeToCamel(post.substring(10, post.length-3));
+
+        function getPost(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        function snakeToCamel(s){
+            return s.replace(/(\-\w)/g, function(m){
+                return " " + m[1].toUpperCase();
+            });
+        }
+    </script>
+</body>
+</html>
