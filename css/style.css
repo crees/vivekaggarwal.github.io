@@ -2,11 +2,10 @@
 @import url("//fonts.googleapis.com/css?family=Open+Sans");
 
 body{
-    margin: 1em auto;
+    margin: 0 auto;
     max-width: 40em;
-    padding: 0.35em .62em;
     font: 1.1em/1.6em "Open Sans", Helvetica, Arial, sans-serif;
-    color: #515151;
+    color: #2a2f35;
     text-rendering: optimizeLegibility;
 }
 
@@ -29,6 +28,11 @@ a {
 
 a:hover {
   color: #268bd2;
+}
+
+footer {
+    margin-top: 2em;
+    border-top: 1px solid #b8bec7;
 }
 
 @media print{
