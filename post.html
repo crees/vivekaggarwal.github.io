@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload="initialise()">
     <div id="content">
     </div>
 
@@ -19,26 +19,25 @@
     <!-- paste this script right before the closing body tag -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js"></script>
     <script>
-        var file = "posts/" + getPost("article");
-        var xhr;
-        if (window.XMLHttpRequest) {
-            xhr = new XMLHttpRequest();
-        } else if (window.ActiveXObject) {
-            xhr = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xhr.onreadystatechange = function(){
-            var converter = new showdown.Converter(),
-            text = xhr.responseText,
-            html = converter.makeHtml(text);
+        function initialise() {
+            var post = getPost("article") + ".md";
 
-            var obj = document.getElementById("content");
-            obj.innerHTML = html;
-        };
-        var post = getPost("article") + ".md";
-        xhr.open("GET","posts/" + post); //assuming kgr.bss is plaintext
-        xhr.send();
+            var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+
+            xhr.onreadystatechange = function() {
+                var converter = new showdown.Converter(),
+                    text = xhr.responseText,
+                    html = converter.makeHtml(text),
+                    obj = document.getElementById("content");
+
+                obj.innerHTML = html;
+            };
         
-        document.title = snakeToCamel(post.substring(10, post.length));
+            xhr.open("GET","posts/" + post);
+            xhr.send();
+            
+            document.title = "Vivek Aggarwal - " + snakeToCamel(post.substring(10, post.length-3))
+        }
 
         function getPost(name, url) {
             if (!url) url = window.location.href;
