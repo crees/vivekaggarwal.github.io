@@ -3,9 +3,10 @@
 
 body{
     margin: 0 auto;
+    padding: 0.42em;
     max-width: 40em;
     font: 1.1em/1.6em "Open Sans", Helvetica, Arial, sans-serif;
-    color: #2a2f35;
+    color: #070600;
     text-rendering: optimizeLegibility;
 }
 
@@ -28,6 +29,21 @@ a {
 
 a:hover {
   color: #268bd2;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li .date {
+    color: #7f7f7f;
+}
+
+li .date::after {
+    color: #EA526F;
+    content: " >>";
 }
 
 footer {
