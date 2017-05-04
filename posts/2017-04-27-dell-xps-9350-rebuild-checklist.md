@@ -2,8 +2,8 @@
 
 What follows is my checklist to carry out a clean install of Windows 10 on a Dell XPS 13 9350.
 
-> **WARNING**: 
-> **I take no responsibility for anything that may go wrong with your laptop.**
+> **NOTE**: 
+> I take no responsibility for anything that may go wrong with your laptop.
 
 ## Before starting
 
@@ -28,14 +28,14 @@ What follows is my checklist to carry out a clean install of Windows 10 on a Del
 
 ## Installation
 
-### Windows
+#### Windows
 
 - **Restart** laptop (F12) and begin Windows installation with `Custom Install Windows Only (Advanced)`
 - **Load** RST Driver from `D:\Drivers\RST` to make hard drive visible
 - **Partition** drive to use all space (delete existing and re-apply full drive space)
 - **Complete** installation and **Restart**
 
-### CAB drivers
+#### CAB drivers
 
 - **Open** an *Elevated* Command Prompt and navigate to `D:\drivers\cab` 
 - **Execute** `for /f %i in (‘dir /b /s *.inf’) do pnputil.exe -i -a %i`
@@ -61,40 +61,34 @@ What follows is my checklist to carry out a clean install of Windows 10 on a Del
     - Slack
     - Wunderlist
 
-## WSL Configuration
+## [WSL](https://msdn.microsoft.com/commandline/wsl/about) Configuration
 
-### **Update** WSL
+- **Update** WSL
 
-```
-sudo su
-apt-get -y update
-apt-get -y upgrade
-exit
-```
+	`sudo su`<br/>
+	`apt-get -y update`<br/>
+	`apt-get -y upgrade`<br/>
+	`exit`
 
-### **Install** [Node](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
+- **Install** [Node](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
 
-```
-sudo su
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-apt-get install -y nodejs npm
-exit
-```
+	`sudo su`<br/>
+	`curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -`<br/>
+	`apt-get install -y nodejs npm`<br/>
+	`exit`
 
-### **Install** Python
+- **Install** Python
 
-```
-sudo su
-apt-get install -y python-pip python-dev
-pip install --upgrade pip
-exit
-```
+	`sudo su`<br/>
+	`apt-get install -y python-pip python-dev`<br/>
+	`pip install --upgrade pip`<br/>
+	`exit`
 
 ## Visual Studio Code Configuration
 
 - **Configure** shell to using `Bash.exe` (CTRL-SHIFT-P > Shell -> Bash)
 
-#### Sources
+### Sources
 
 1. [Dell Instructions to configure CAB files](http://www.dell.com/support/article/us/en/4/SLN209380/how-to-configure-driver-installation-from-cab-file-s--in-windows--vista--7--8--and-windows-server--2008-2012-?lang=EN)
 1. [Clean Install Guide on Answers @ Microsoft](https://answers.microsoft.com/en-us/windows/wiki/windows_10-windows_install/clean-install-windows-10/1c426bdf-79b1-4d42-be93-17378d93e587)
