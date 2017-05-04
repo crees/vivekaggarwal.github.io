@@ -31,7 +31,7 @@ a:hover {
   color: #268bd2;
 }
 
-.article-list {
+ul>.article-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
